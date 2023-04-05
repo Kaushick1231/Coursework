@@ -281,6 +281,48 @@ header{
     font-size: 16px;
 }
 
+/*Developer Team*/
+.Team{
+    overflow: hidden;
+    text-align: center;
+    background: transparent;
+    padding: 40px;
+}
+
+.ourTeam h1{
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: white;
+    font-size: 40px;
+	font-family: Candara;
+}
+
+.members{
+    margin-bottom: 40px;
+}
+
+.members a{
+    display: inline-block;
+    margin: 0 30px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.members a img{
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+    transition: 0.4s all;
+}
+
+.members a:hover > img{
+    filter: none;
+    transform: scale(1.2);
+    opacity: 0.9;
+}
+
 /* FOOTER */
 .footer{
 	position: relative;
