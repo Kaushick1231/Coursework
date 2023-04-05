@@ -8,32 +8,70 @@
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+<link rel = "stylesheet" href="persona.css">
 </head>
 
 <body>
- <div class="login">
-	<h1>Flower Class Prediction</h1>
+    <header>
+        <h2 class="logo"> Persona </h2>
+        <nav class="navigation">
+            <a href = "#">Home</a>
+            <a href = "#">Personality Type</a>
+            <a href= "#">About us</a>
+        </nav>
+    </header>
+  <div class="wrapper">
+      <div class="form-box-predict">
+	      <h1>Flower Class Prediction</h1>
+          <!-- Main Input For Receiving Query to our ML -->
+          <div class="questions">
+            <form action="{{ url_for('predict')}}"method="post">
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="Gender" placeholder="Male = 1 or Female = 0" required="required" />
-      <input type="text" name="Age" placeholder="1-10" required="required" />
-	<input type="text" name="openness" placeholder="1-10" required="required" />
-	<input type="text" name="neuroticism" placeholder="1-10" required="required" />
-	<input type="text" name="conscientiousness" placeholder="1-10" required="required" />
-	<input type="text" name="agreeableness" placeholder="1-10" required="required" />
-	<input type="text" name="extraversion" placeholder="1-10" required="required" />
+              <div class="input_box">
+                <h4>Gender</h4>
+                <input type="text" name="Gender" placeholder=" Male = 1 or Female = 0" required="required" />
+              </div>
 
+              <div class="input_box">
+                <h4>Age</h4>
+                <input type="text" name="Age" placeholder="1 - 50" required="required" />
+              </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+              <div class="input_box">
+                <h4>Openness</h4>
+	              <input type="text" name="openness" placeholder="1 - 10" required="required" />
+              </div>
+
+              <div class="input_box">
+                <h4>Neuroticism</h4>
+	              <input type="text" name="neuroticism" placeholder="1 - 10" required="required" />
+              </div>
+
+              <div class="input_box">
+                <h4>Conscientiousness</h4>
+	              <input type="text" name="conscientiousness" placeholder="1 - 10" required="required" />
+              </div>
+
+              <div class="input_box">
+                <h4>Agreeableness</h4>
+	              <input type="text" name="agreeableness" placeholder="1 - 10" required="required" />
+              </div>
+
+              <div class="input_box">
+                <h4>Extraversion</h4>
+	              <input type="text" name="extraversion" placeholder="1 - 10" required="required" />
+              </div>
+          </div>
+              <button type="submit" class="btnPredict">Predict</button>
+            </form>
+      </div>
+  </div>
+    
     </form>
 
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
+<footer>
+  
+</footer>
 
 
 </body>
