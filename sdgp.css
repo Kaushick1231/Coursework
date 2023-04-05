@@ -238,7 +238,6 @@ header{
     color: #162938;
     text-align: center;
 }
-<<<<<<< Updated upstream
 
 .topic h1 {
     font-size: 44px;
@@ -320,8 +319,6 @@ header{
 }
 
 /* FOOTER */
-=======
->>>>>>> Stashed changes
 .footer{
 	position: absolute;bottom: -25px;
 	width: 100%;
