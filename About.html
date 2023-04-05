@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>About Us</title>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="photos/logo.png">
+        <link rel = "stylesheet" href="AboutCSS.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+        <header>
+            <h2 class="logo"> P E R S O N A </h2>
+            <nav class="navigation">
+				<a href="home.html">Home</a>
+                <a href = "persona.html">Personality Test</a>
+                <a href = "#">Personality Type</a>
+                <a href= "About.html">About Us</a>
+            </nav>
+        </header>
+
+		<div class="layout">
+			<section class="section">
+				<div class="container">
+					<div class="wrapper" style="text-align:center">
+
+						<br><br><br>
+						
+						<div class="thumbs">
+							<div class="about" onclick="view('Kaushick')">
+								<article class="caption">
+									<img class="media" src="photos/Kaushick.jpg" />
+									<div class="overlay">
+										<h1 class="title">Student 1</h1>
+										<p class="content">
+											Name : Kaushick Ramachandra <br> IIT ID : 20210611 <br> UOW ID : w1867683
+										</p>
+									</div>
+								</article>
+							</div>
+
+							<div class="about" onclick="view('Kaveesha')">
+								<article class="caption">
+									<img class="media" src="photos/Kaveesha.jpg" />
+									<div class="overlay">
+										<h1 class="title">Student 2</h1>
+										<p class="content">
+											Name : Kaveesha Dilshan <br> IIT ID : 20210201 <br> UOW ID : w1911998
+										</p>
+									</div>
+								</article>
+							</div>
+							
+							<div class="about" onclick="view('Dulith')">
+								<article class="caption">
+									<img class="media" src="photos/Dulith.jpg" />
+									<div class="overlay">
+										<h1 class="title">Student 3</h1>
+										<p class="content">
+											Name : Dulith Perera <br> IIT ID : 20211465 <br> UOW ID : w1903042
+										</p>
+									</div>
+								</article>
+							</div>
+							
+							<div class="about"onclick="view('Kavindu')">
+								<article class="caption">
+									<img class="media" src="photos/Kavindu.jpg" />
+									<div class="overlay">
+										<h1 class="title">Student 4</h1>
+										<p class="content">
+											Name : Kavindu Ariyasena <br> IIT ID : 20210513 <br> UOW ID : w1864671
+										</p>
+									</div>
+								</article>
+							</div>
+                            
+							<div class="about" onclick="view('Shenon')">
+								<article class="caption">
+									<img class="media" src="photos/Shenon.jpg" />
+									<div class="overlay">
+										<h1 class="title">Student 5</h1>
+										<p class="content">
+											Name : Shenon Wijesinghe <br> IIT ID : 20210315 <br> UOW ID : w1867437
+										</p>
+									</div>
+								</article>
+							</div>
+						
+						</div>
+						<br><br><br>
+					</div>
+			</section>
+	     </div>	
+	  <script>
+		function view(name){
+		window.location.href= name+ ".html"
+		}
+	  </script>
+	  
+	</body>
+</html>
