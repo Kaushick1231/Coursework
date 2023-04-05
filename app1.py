@@ -15,7 +15,7 @@ def predict():
     float_features = [float(x) for x in request.form.values()]
     features = [np.array(float_features)]
     prediction = model.predict(features)
-    return render_template("index.html", prediction_text = "Yor personality type is {}".format(prediction))
+    return render_template("index.html", prediction_text = "Your personality type is {}".format(prediction))
 
 if __name__ == "__main__":
     app1.run(debug=True)
