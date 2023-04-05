@@ -1,37 +1,32 @@
 * {
-    text-decoration: none;
+    margin: 0 ;
+    padding: 0 ;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
-    align-content: center;
-    align-items: center;
 }
 body{
-    margin: 0 ;
-    height: 100%;
-    background-image: linear-gradient(to right, azure , lightcyan);
-    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(photos/home.JPEG)no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family:'Times New Roman', Times, serif
 }
-
-h1,h2, h3 {
-    text-align: center;
-}
-
 header{
-    margin: auto;
-    position: relative;
+    
+    position: fixed;
     top: 0 ;
     left: 0 ;
     width: 100% ;
-    padding: 10px 50px ; 
+    padding: 20px 100px ; 
     background:rgba(255, 255, 255, 0.47);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    font-family:'Times New Roman', Times, serif;
-    background: url(photos/home.JPEG)no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-family:'Times New Roman', Times, serif
       
 }
 .logo{
@@ -41,7 +36,7 @@ header{
 }
 .navigation a{
     position: relative;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #000000;
     text-decoration: none;
     font-weight: 500;
@@ -73,7 +68,7 @@ header{
     outline: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #000000;
     font-weight: 500;
     margin-left: 40px;
@@ -84,7 +79,7 @@ header{
     color: #ffffff;
 }
 .wrapper{
-    position: absolute;
+    position: relative;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -243,6 +238,7 @@ header{
     color: #162938;
     text-align: center;
 }
+<<<<<<< Updated upstream
 
 .topic h1 {
     font-size: 44px;
@@ -324,15 +320,18 @@ header{
 }
 
 /* FOOTER */
+=======
+>>>>>>> Stashed changes
 .footer{
-	position: relative;
+	position: absolute;bottom: -25px;
 	width: 100%;
 	height: auto;
 	padding: 50px 80px;
-	background:cadetblue;
+	background:transparent;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+    align-items:center ;
 }
 
 footer p:nth-child(1) {
@@ -357,7 +356,7 @@ footer p:nth-child(1) {
 
 .footer .container  h2{
 	position: relative;
-	color: #fff;
+	color: #000000;
 	font-weight: 500;
 	margin-bottom: 15px;
 }
@@ -409,6 +408,8 @@ footer p:nth-child(1) {
 
 .follow {
     font-family: "Audiowide", sans-serif;   /* GOOGLE FONT */
+    color: #000000;
+    text-align: center;
 }
 
 .copyright{
@@ -419,3 +420,4 @@ footer p:nth-child(1) {
 	text-align: center;
 	color: #999;
 }
+
