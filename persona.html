@@ -15,7 +15,7 @@
     <header>
         <h2 class="logo"> Persona </h2>
         <nav class="navigation">
-            <a href = "#">Home</a>
+            <a href = "home.html">Home</a>
             <a href = "#">Personality Type</a>
             <a href= "#">About us</a>
         </nav>
@@ -28,38 +28,46 @@
             <form action="{{ url_for('predict')}}"method="post">
 
               <div class="input_box">
-                <h4>Gender</h4>
-                <input type="text" name="Gender" placeholder=" Male = 1 or Female = 0" required="required" />
+                <h4>Applicant Name</h4>
+                <input type="text" name="name" placeholder="Enter Your Name " required="required" />
               </div>
 
               <div class="input_box">
                 <h4>Age</h4>
-                <input type="text" name="Age" placeholder="1 - 50" required="required" />
+                <input type="text" name="Age" placeholder="Enter Your Age " required="required" />
               </div>
 
               <div class="input_box">
-                <h4>Openness</h4>
-	              <input type="text" name="openness" placeholder="1 - 10" required="required" />
+                <h4>Gender</h4>
+	              <input type="text" name="gender" placeholder="Male = 1 or Female = 0" required="required" />
               </div>
 
               <div class="input_box">
-                <h4>Neuroticism</h4>
-	              <input type="text" name="neuroticism" placeholder="1 - 10" required="required" />
+                <h4>Upload resume</h4>
+	              <input type="text" name="neuroticism" placeholder="Rate 1 - 10" required="required" />
               </div>
 
               <div class="input_box">
-                <h4>Conscientiousness</h4>
-	              <input type="text" name="conscientiousness" placeholder="1 - 10" required="required" />
+                <h4>Enjoy new experience or thing</h4>
+	              <input type="text" name="conscientiousness" placeholder="Rate 1 - 10" required="required" />
               </div>
 
               <div class="input_box">
-                <h4>Agreeableness</h4>
-	              <input type="text" name="agreeableness" placeholder="1 - 10" required="required" />
+                <h4>How offen you feel negativity</h4>
+	              <input type="text" name="agreeableness" placeholder="Rate 1 - 10" required="required" />
               </div>
 
               <div class="input_box">
-                <h4>Extraversion</h4>
-	              <input type="text" name="extraversion" placeholder="1 - 10" required="required" />
+                <h4>Wishing to do one's work well and thoroughly</h4>
+	              <input type="text" name="extraversion" placeholder="Rate 1 - 10" required="required" />
+              </div>
+              <div class="input_box">
+                <h4>How much would you like work with your peers</h4>
+	              <input type="text" name="extraversion" placeholder="Rate 1 - 10" required="required" />
+              </div>
+              <div class="input_box">
+                <h4>How outgoing and social interaction you like</h4>
+	              <input type="text" name="extraversion" placeholder="Rate 1 - 10" required="required" />
               </div>
           </div>
               <button type="submit" class="btnPredict">Predict</button>
