@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Recognition</title>
+</head>
+<body>
+    <h1>Emotion Recognition</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <div id="result"></div>
+    <script>
+        // get video element
+        let video = document.getElementById('video');
+
+        // get canvas element
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+
+        // get result element
+        let result = document.getElementById('result');
+
+        // get user media
+        navigator.mediaDevices.getUserMedia({video: true})
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+        // analyze video frames
+        let socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.on('connect', function() {
+            console.log('Connected');
+        });
+
+        socket.on('frame', function(data) {
+            let img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                let dataURL = canvas.toDataURL('image/jpeg');
+                socket.emit('analyze', dataURL);
+            };
+            img.src = 'data:image/jpeg;base64,' + data;
+        });
+
+        // get result from server
+        socket.on('result', function(data) {
+            result.innerHTML = data;
+        });
+    </script>
+</body>
+</html>
