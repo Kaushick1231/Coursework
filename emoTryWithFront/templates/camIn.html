@@ -1,0 +1,164 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Camera Introduction</title>
+    </head>
+    <body>
+        <h1>Camera Introduction</h1>
+        <div>
+            <video id="video" width="640" height="480"></video>
+        </div>
+        <div>
+            <button id="startbutton">Start Camera</button>
+            <button id="stopbutton">Stop Camera</button>
+        </div>
+        <div>
+            <form action="/process_video" method="POST" enctype="multipart/form-data">
+                <input type="file" name="video">
+                <input type="submit" value="Process Video">
+            </form>
+        </div>
+        <div>
+            <textarea id="introduction" rows="4" cols="50" placeholder="Introduce yourself"></textarea>
+        </div>
+        <script>
+            var video = document.querySelector("#video");
+            var introduction = document.querySelector("#introduction");
+            var startbutton = document.querySelector("#startbutton");
+            var stopbutton = document.querySelector("#stopbutton");
+            var stream = null;
+            var recorder = null;
+            var chunks = [];
+
+            function startCamera() {
+                if (navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function (stream) {
+                            video.srcObject = stream;
+                            video.play();
+                            recorder = new MediaRecorder(stream);
+                            recorder.ondataavailable = function (e) {
+                                chunks.push(e.data);
+                            };
+                            recorder.onstop = function (e) {
+                                var blob = new Blob(chunks, { 'type': 'video/webm' });
+                                chunks = [];
+                                var videoURL = URL.createObjectURL(blob);
+                                var video = document.createElement('video');
+                                video.src = videoURL;
+                                video.controls = true;
+                                introduction.value += '\n' + videoURL;
+                            };
+                            recorder.start();
+                        })
+                        .catch(function (err) {
+                            console.log("Error starting camera: " + err);
+                        });
+                }
+            }
+
+            function stopCamera() {
+                if (stream) {
+                    stream.getTracks().forEach(function (track) {
+                        track.stop();
+                    });
+                }
+                if (recorder && recorder.state !== 'inactive') {
+                    recorder.stop();
+                }
+                video.pause();
+                video.srcObject = null;
+            }
+
+            
+            startbutton.addEventListener('click', function () {
+                startCamera();
+            });
+
+            stopbutton.addEventListener('click', function () {
+                stopCamera();
+            });
+        </script>
+    </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Camera Output</title>
+    </head>
+    <body>
+        <h1>Camera Output</h1>
+        <div>
+            <video id="video" width="640" height="480"></video>
+        </div>
+        <div>
+            <button id="startbutton">Start Camera</button>
+            <button id="stopbutton">Stop Camera</button>
+        </div>
+        <div>
+            <form action="/process_video" method="POST" enctype="multipart/form-data">
+                <input type="file" name="video">
+                <input type="submit" value="Process Video">
+            </form>
+        </div>
+        <div>
+            <textarea id="result" rows="4" cols="50" placeholder="Result"></textarea>
+        </div>
+        <script>
+            var video = document.querySelector("#video");
+		    var result = document.querySelector("#result");
+            var startbutton = document.querySelector("#startbutton");
+            var stopbutton = document.querySelector("#stopbutton");
+            var stream = null;
+            var recorder = null;
+            var chunks = [];
+
+            function startCamera() {
+                if (navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function (stream) {
+                            video.srcObject = stream;
+                            video.play();
+                            recorder = new MediaRecorder(stream);
+                            recorder.ondataavailable = function (e) {
+                                chunks.push(e.data);
+                            };
+                            recorder.onstop = function (e) {
+                                var blob = new Blob(chunks, { 'type': 'video/webm' });
+                                chunks = [];
+                                var videoURL = URL.createObjectURL(blob);
+                                var video = document.createElement('video');
+                                video.src = videoURL;
+                                video.controls = true;
+					            result.value += '\n' + videoURL
+                                document.querySelector("#video").replaceWith(video);
+                            };
+                            recorder.start();
+                        })
+                        .catch(function (err) {
+                            console.log("Error starting camera: " + err);
+                        });
+                }
+            }
+
+            function stopCamera() {
+                if (stream) {
+                    stream.getTracks().forEach(function (track) {
+                        track.stop();
+                    });
+                }
+                if (recorder && recorder.state !== 'inactive') {
+                    recorder.stop();
+                }
+            }
+
+            startbutton.addEventListener('click', function () {
+                startCamera();
+            });
+
+            stopbutton.addEventListener('click', function () {
+                stopCamera();
+            });
+        </script>
+    </body>
+</html>
