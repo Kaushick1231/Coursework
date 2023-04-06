@@ -6,6 +6,7 @@
     align-items: center;
 }
 
+/* Style the body */
 body{
     margin: 0 ;
     height: 100%;
@@ -40,6 +41,8 @@ header{
     color: #162938;
     user-select: none;
 }
+
+/* Navigation Bar */
 .navigation a{
     position: relative;
     font-size: 1.2em;
@@ -66,6 +69,15 @@ header{
     transform: scaleX(1);
     transform-origin: left;
 }
+
+/* Automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+    .navigation a {
+      float: none;
+      display: block;
+    }
+}
+
 .btnlogin {
     width: 130px;
     height: 50px;
@@ -84,6 +96,8 @@ header{
     background: #7C6DE2;
     color: #ffffff;
 }
+
+/* Login */
 .wrapper{
     position: absolute;
     width: 400px;
@@ -245,10 +259,38 @@ header{
     text-align: center;
 }
 
+/* Scroll button*/
+
+#goTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    border: none;
+    outline: none;
+    background-image: url("photos/B2T.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  #goTopBtn:hover {
+      transform: scale(1.2);
+      opacity: 0.9;
+  }
+
 .topic h1 {
     font-size: 44px;
 }
 
+/* Content */
 .intro {
     margin: auto;
     padding: 5px;
@@ -407,3 +449,23 @@ footer p:nth-child(1) {
 	text-align: center;
 	color: #999;
 }
+
+@media screen and (max-width:992px){
+    
+    .aboutus, .contactinfo{
+        width: 35%;
+    }
+    .quicklinks{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:767px){
+    .aboutus, .contactinfo, .quicklinks{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .container{
+        flex-direction: column;
+    }
+}   
