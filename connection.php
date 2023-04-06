@@ -13,9 +13,9 @@ $conn = new mysqli('localhost','root','','sdgp');
 if($conn->connect_error){
     die('Connection Failed :'. $conn->connect_error);
 }else{
-    $stmt = $conn->prepare("INSERT INTO registration(user_name,user_email,user_password)
+    $stmt = $conn->prepare("insert into registration(user_name,user_email,user_password)
         values('?','?','?')");
-    $stmt->bind_param("sss",$name,$email,$hashed_password);
+    $stmt->bind_param("sss","{$name}","{$email}","{$hashed_password}");
     $stmt ->execute();
     echo "registration successfully...";
     $stmt->close();
