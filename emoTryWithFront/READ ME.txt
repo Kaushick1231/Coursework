@@ -1,0 +1,11 @@
+camIn.html -----  This code creates a simple HTML page with a video element for displaying the camera feed, a textarea element for the user to introduce themselves, and two buttons to start and stop the camera. When the user clicks the "Start Camera" button, the JavaScript code requests access to the user's camera, and if permission is granted, it starts displaying the camera feed in the video element. It also starts recording the camera feed using the MediaRecorder API and saves the resulting video as a Blob object. When the user clicks the "Stop Camera" button, the camera feed is stopped and the recorded video is displayed in the textarea element.
+
+
+emoTryWithfront ---To analyze the video input frames using the Flask server and the code you provided, you would need to modify the gen_frames function to accept a video stream as input rather than using the webcam feed. You can do this by replacing the line cap = cv2.VideoCapture(0) with cap = cv2.VideoCapture(video_stream) where video_stream is a reference to the video stream passed to the Flask server. You would also need to modify the video_feed route to pass the video stream as a parameter to the gen_frames function.
+This code assumes that you have an HTML file named index.html that includes a video element with an ID of "video-player" and a button element with an ID of "start-button". When the user clicks the start button, the JavaScript code initializes the camera and passes the video stream to the Flask server by making a request to the video_feed route with the video stream as a parameter. The Flask server then processes the video stream using the gen_frames function and returns the processed video frames to the client. 
+
+camOut.html---- Here, we have created an HTML page with a video element, a canvas element, and a result element. We have also added some JavaScript code to get the video stream from the user's camera, draw the video frames on the canvas, and send the frames to the server for analysis. Finally, we receive the result from the server and display it in the result element.
+
+You can save this HTML code in a file named index.html. Make sure to include the necessary CSS styles and JavaScript libraries as well.
+To run the web application, you can use the following command:
+python app.py
