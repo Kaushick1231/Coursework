@@ -1,23 +1,18 @@
 <?php
 $email = $_POST['useremail'];
 $password = $_POST['userpassword'];
+$hashed_password = sha1($password);
 
-$con = new mysqli("localhost","root","","sdgp");
-if ($con->connect_error){
-    die("Failed to connect : ". $con->connect_error);    
-}else{
-    $stmt = $con->prepare("select * from registration from where email = ?");
-    $stmt->bind_param("s",$email);
-    $stmt->execute();
-    $stmt_result=$stmt->get_result();
-    if($stmt_result->num_rows>0){
-        $data=$stmt_result->fetch_assoc();
-        if($data["user_password"]==$password){
-            echo "<h2>Login Successfully!</h2>";
-        }
-    }else {
-        echo "<h2>Invalid Email or password</h2>";
-    }
+$connection = mysqli_connect('localhost','root','','sdgp');
+if(mysqli_connect_errno()){
+    die ("Database connection failed !" . mysqli_connect_error());
+} else{
+    $query = "SELECT user_email,user_password FROM registration WHERE user_email = '{$email}' ";
+    $result = mysqli_query($connection,$query);
+    if($email == 'user_email' && $hashed_password == 'user_paassword'){
+        echo file_get_contents("persona.html");
+    } else {
+        echo "incorrect password or email !";
 }
-
+}
 ?>
